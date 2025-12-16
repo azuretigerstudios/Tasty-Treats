@@ -1,14 +1,49 @@
 <!DOCTYPE html>
-<html lang="ru">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Page title</title>
-    <link rel="stylesheet" href="./sass/index.scss" />
-    <script type="module" src="./index.js"></script>
-  </head>
-  <body>
-    <!-- ❗️❗️❗️ Add partials like so for every page -->
-    <include src="./partials/example.html"></include>
-  </body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="./images/favicon-32x32.png" type="image/x-icon">
+  <meta name="description" content="LEARN TO COOK TASTY TREATS">
+  <title>Tasty Treats</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+  <link rel="stylesheet" href="./sass/index.scss" />
+</head>
+
+<body>
+  <include src="./partials/header.html"></include>
+
+  <main>
+    <include src="./partials/home/hero.html"></include>
+
+    <section class="search-recipes section">
+      <div class="container search-recipes__wrapp">
+
+        <div class="sidebar">
+          <include src="./partials/home/all-categories.html"></include>
+          <include src="./partials/home/popular-recipes.html"></include>
+        </div>
+
+        <include src="./partials/home/recipe-cards.html"></include>
+
+      </div>
+    </section>
+  </main>
+
+  <include src="./partials/footer.html"></include>
+  <include src="./partials/modal/modal-createRecipe.html"></include>
+
+  <div class="backdrop is-hidden" id="recipe-modal"><div class="modal"><button type="button" class="modal-close-btn" id="close-modal">✖</button><div class="modal-content" id="modal-content"></div></div></div>
+  <div class="backdrop is-hidden" id="rating-modal"><div class="modal rating-modal"><button type="button" class="modal-close-btn js-close-rating">✖</button><div class="rating-display"><div id="rating-value">0.0</div><div class="stars-container" id="stars-container"></div></div><form class="rating-form" id="rating-form"><input type="email" name="email" required class="form-input" placeholder="Enter email"><input type="hidden" name="rate" id="rating-input" value="5"><button type="submit" class="submit-btn">Send</button></form></div></div>
+  <div class="backdrop is-hidden" id="order-modal"><div class="modal order-modal"><button type="button" class="modal-close-btn js-close-order">✖</button><h2 class="modal-title">Order now</h2><form class="order-form" id="order-form"><label class="form-label">Name<input type="text" name="name" required class="form-input"></label><label class="form-label">Phone<input type="tel" name="phone" required class="form-input"></label><label class="form-label">Email<input type="email" name="email" required class="form-input"></label><label class="form-label">Comment<textarea name="comment" class="form-input"></textarea></label><button type="submit" class="submit-btn">Send</button></form></div></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script type="module" src="./index.js"></script>
+</body>
 </html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tasty Treats - Favorites</title>
+    <link rel="stylesheet" href="./sass/index.scss" />
+  </head>
+  <body>
+    <include src="./partials/header.html"></include>
+
+    <main>
+      <section class="hero section" style="padding: 40px 0;">
+        <div class="container">
+          <h1 class="hero-title">Your Favorite Recipes</h1>
+          <p class="hero-desc">Beğendiğin tarifler burada listelenecek.</p>
+        </div>
+      </section>
+
+      <section class="favorites-list section">
+        <div class="container">
+           <div class="recipes-grid js-favorites-grid">
+               <p style="text-align:center; width:100%;">Henüz favori eklemedin.</p>
+           </div>
+        </div>
+      </section>
+    </main>
+
+    <div class="backdrop is-hidden" id="recipe-modal">
+        <div class="modal">
+            <button type="button" class="modal-close-btn" id="close-modal">✖</button>
+            <div class="modal-content" id="modal-content">
+                </div>
+        </div>
+    </div>
+
+    <script type="module" src="./index.js"></script>
+  </body>
+</html>

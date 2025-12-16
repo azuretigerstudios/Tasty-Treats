@@ -1,1 +1,493 @@
-@import '~node_modules/modern-normalize/modern-normalize.css';
+/* src/sass/index.scss */
+
+/* 1. RESET VE TEMEL AYARLAR */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+:root {
+  /* Renk Paleti (Light Mode) */
+  --primary-color: #9BB537;
+  --primary-hover: #B5D246;
+
+  --bg-color: #F8F8F8;        /* Tüm sayfa arka planı */
+  --card-bg: #FFFFFF;         /* Kartlar */
+  --text-main: #050505;       /* Ana başlıklar */
+  --text-secondary: rgba(5, 5, 5, 0.5); /* Açıklamalar */
+  --border-color: rgba(5, 5, 5, 0.1);
+
+  --sidebar-width: 235px;     /* Sidebar genişliği */
+  --header-height: 80px;
+
+  --font-main: 'Inter', sans-serif;
+  --transition: all 0.3s ease;
+}
+
+/* Dark Mode Değişkenleri */
+body.dark-theme {
+  --bg-color: #161616;
+  --card-bg: #202025;
+  --text-main: #F8F8F8;
+  --text-secondary: rgba(248, 248, 248, 0.5);
+  --border-color: rgba(248, 248, 248, 0.2);
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  margin: 0;
+  line-height: 1.5;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+ul { list-style: none; padding: 0; margin: 0; }
+a { text-decoration: none; color: inherit; }
+button { font-family: inherit; cursor: pointer; }
+img { display: block; max-width: 100%; height: auto; }
+
+/* Container */
+.container {
+  width: 100%;
+  padding: 0 20px;
+  margin: 0 auto;
+
+  @media screen and (min-width: 375px) { max-width: 375px; }
+  @media screen and (min-width: 768px) { max-width: 768px; }
+  @media screen and (min-width: 1280px) { max-width: 1240px; } /* Geniş ekran */
+}
+
+/* 2. HEADER */
+.header {
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  background-color: transparent; /* Beyaz sayfa üstünde şeffaf */
+  position: relative;
+  z-index: 10;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-weight: 600;
+  font-size: 20px;
+  color: var(--primary-color);
+}
+
+.nav-list {
+  display: flex;
+  gap: 20px;
+
+  .nav-link {
+    color: var(--text-main);
+    font-weight: 500;
+    &.active { color: var(--primary-color); }
+    &:hover { color: var(--primary-color); }
+  }
+}
+
+.nav.desktop-nav {
+  @media (max-width: 767px) { display: none; }
+}
+
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  button {
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: var(--text-main);
+    padding: 5px;
+  }
+}
+
+.mobile-menu-btn {
+  @media (min-width: 768px) { display: none !important; }
+}
+
+/* Mobile Menu (Basit) */
+.mobile-menu {
+  position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+  background-color: var(--primary-color);
+  z-index: 999;
+  padding: 20px;
+  transition: transform 0.3s;
+
+  &.is-hidden { transform: translateX(100%); }
+
+  .mobile-close-btn {
+    position: absolute; top: 20px; right: 20px;
+    background: none; border: none; font-size: 30px; color: white;
+  }
+
+  .mobile-nav-list {
+    margin-top: 80px;
+    text-align: center;
+
+    a {
+      display: block; font-size: 24px; color: white; margin-bottom: 20px;
+    }
+  }
+}
+
+
+/* 3. HERO SECTION (SWIPER SLIDER) */
+.hero-section {
+  margin-bottom: 40px;
+
+  .swiper {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    overflow: hidden;
+  }
+
+  .swiper-slide {
+    display: flex;
+    flex-direction: column-reverse; /* Mobilde görsel üstte olsun */
+    background-color: var(--bg-color); /* Slide arka planı */
+    /* Resimdeki gibi siyahımsı bir gradient ekleyebiliriz ama şimdilik temiz tutalım */
+
+    @media (min-width: 768px) {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      height: 400px;
+      padding: 0 40px;
+    }
+  }
+
+  .hero-slide-content {
+    padding: 20px;
+    text-align: left;
+    max-width: 500px;
+
+    .hero-title {
+      font-size: 32px;
+      line-height: 1.1;
+      margin-bottom: 15px;
+      color: var(--text-main);
+
+      .highlight { color: var(--primary-color); font-style: italic; }
+    }
+
+    .hero-desc {
+      color: var(--text-secondary);
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
+    .hero-btn {
+      background-color: transparent;
+      border: 2px solid var(--primary-color);
+      color: var(--text-main);
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: 500;
+      &:hover {
+        background-color: var(--primary-color);
+        color: white;
+      }
+    }
+  }
+
+  .hero-slide-image {
+    width: 100%;
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      max-height: 100%;
+      object-fit: contain;
+    }
+
+    @media (min-width: 768px) {
+      width: 50%;
+      height: 100%;
+    }
+  }
+
+  /* Swiper Dots */
+  .swiper-pagination-bullet-active {
+    background-color: var(--primary-color) !important;
+  }
+}
+
+
+/* 4. MAIN LAYOUT (SIDEBAR + GALLERY) */
+.main-wrapper {
+  display: flex;
+  flex-direction: column; /* Mobilde alt alta */
+  gap: 30px;
+  padding-bottom: 60px;
+
+  @media (min-width: 768px) {
+    flex-direction: row; /* Tablet ve üstü yan yana */
+    align-items: flex-start;
+  }
+}
+
+/* --- SIDEBAR --- */
+.sidebar {
+  width: 100%;
+  flex-shrink: 0;
+
+  @media (min-width: 768px) {
+    width: var(--sidebar-width);
+  }
+}
+
+.categories-container {
+  margin-bottom: 30px;
+
+  .all-categories-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    text-align: left;
+    color: var(--text-secondary);
+    margin-bottom: 15px;
+
+    &.active {
+      background-color: var(--primary-color);
+      color: white;
+      border-color: var(--primary-color);
+    }
+  }
+
+  .categories-list {
+    height: 300px;
+    overflow-y: auto; /* Çok kategori varsa scroll çıkar */
+    padding-right: 5px;
+
+    li {
+      margin-bottom: 8px;
+
+      button {
+        background: none; border: none;
+        color: var(--text-secondary);
+        font-size: 14px;
+        width: 100%; text-align: left;
+        padding: 5px 0;
+
+        &:hover, &.active {
+          color: var(--primary-color);
+        }
+      }
+    }
+
+    /* İnce scrollbar */
+    &::-webkit-scrollbar { width: 4px; }
+    &::-webkit-scrollbar-thumb { background-color: #ccc; border-radius: 4px; }
+  }
+}
+
+.popular-recipes-container {
+  display: none; /* Mobilde gizle */
+  @media (min-width: 1280px) { display: block; } /* Sadece geniş ekranda göster */
+
+  .sidebar-title {
+    font-size: 18px; margin-bottom: 15px; color: var(--text-main);
+  }
+
+  .popular-list {
+    li {
+      display: flex; gap: 10px; margin-bottom: 15px; cursor: pointer;
+
+      img {
+        width: 50px; height: 50px; border-radius: 8px; object-fit: cover;
+      }
+
+      .popular-info {
+        h4 { margin: 0; font-size: 14px; color: var(--text-main); }
+        p { margin: 0; font-size: 12px; color: var(--text-secondary); }
+      }
+    }
+  }
+}
+
+
+/* --- GALLERY AREA --- */
+.gallery-container {
+  flex-grow: 1;
+  width: 100%;
+}
+
+/* Filters */
+.filters-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 30px;
+
+  .filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    .filter-label {
+      font-size: 12px; color: var(--text-secondary);
+    }
+
+    input, select {
+      padding: 10px 15px;
+      border-radius: 8px;
+      border: 1px solid var(--border-color);
+      background-color: var(--card-bg);
+      color: var(--text-main);
+      min-width: 140px;
+      outline: none;
+
+      &:focus { border-color: var(--primary-color); }
+    }
+  }
+
+  .reset-btn {
+    align-self: flex-end; /* Alt tarafa hizala */
+    margin-bottom: 2px;
+    background: none; border: none;
+    color: var(--text-secondary);
+    font-size: 14px;
+    &:hover { color: var(--primary-color); }
+  }
+}
+
+/* Recipes Grid (Kartlar) */
+.recipes-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* Mobilde tek */
+  gap: 20px;
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(2, 1fr); /* Tablette 2 */
+  }
+
+  @media (min-width: 1280px) {
+    grid-template-columns: repeat(3, 1fr); /* Masaüstünde 3 */
+  }
+}
+
+/* Recipe Card Design */
+.recipe-card {
+  background-color: var(--card-bg);
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative; /* Kalp ikonu için */
+  height: 300px; /* Sabit yükseklik */
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* İçeriği alta it */
+  border: 1px solid var(--border-color);
+
+  /* Gradyan (Text okunabilirliği için) */
+  &::before {
+    content: ''; position: absolute;
+    bottom: 0; left: 0; width: 100%; height: 60%;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+  }
+
+  .card-icons {
+    position: absolute; top: 15px; right: 15px; z-index: 2;
+    .heart-btn {
+      background: transparent; border: none; font-size: 20px;
+      &.active { color: red; } /* JS ile class gelince kırmızı olur */
+    }
+  }
+
+  .card-info {
+    position: relative; z-index: 2;
+    padding: 15px;
+    color: white; /* Resim üstü olduğu için beyaz */
+
+    .card-title {
+      font-size: 16px; margin: 0 0 5px; text-transform: uppercase;
+    }
+
+    .card-desc {
+      font-size: 12px; opacity: 0.8; margin: 0 0 10px;
+      display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+    }
+
+    .card-bottom {
+      display: flex; justify-content: space-between; align-items: center;
+
+      .rating { color: orange; font-size: 14px; }
+
+      .see-recipe-btn {
+        background-color: var(--primary-color);
+        color: white; border: none;
+        padding: 6px 14px; border-radius: 6px; font-size: 12px;
+        &:hover { background-color: var(--primary-hover); }
+      }
+    }
+  }
+}
+
+/* 5. MODAL ve PAGINATION (Eski Kodlardan) */
+.backdrop {
+  position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000; opacity: 1; visibility: visible;
+  transition: opacity 0.3s;
+  display: flex; align-items: center; justify-content: center;
+
+  &.is-hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+}
+
+.modal {
+  background-color: var(--card-bg);
+  color: var(--text-main);
+  border-radius: 15px;
+  padding: 30px;
+  width: 90%; max-width: 600px;
+  max-height: 90vh; overflow-y: auto;
+  position: relative;
+
+  .modal-close-btn {
+    position: absolute; top: 10px; right: 10px;
+    background: none; border: none; font-size: 24px; color: var(--text-main);
+  }
+}
+
+.order-form, .rating-form {
+  display: flex; flex-direction: column; gap: 15px;
+  margin-top: 20px;
+
+  input, textarea {
+    width: 100%; padding: 10px; border: 1px solid var(--border-color);
+    background-color: transparent; color: var(--text-main); border-radius: 5px;
+  }
+
+  .submit-btn {
+    background-color: var(--primary-color); color: white; padding: 12px; border: none; border-radius: 5px;
+  }
+}
+
+.pagination-container {
+  display: flex; justify-content: center; gap: 10px; margin-top: 30px;
+
+  .pagination-btn {
+    width: 35px; height: 35px;
+    border-radius: 50%; border: 1px solid var(--border-color);
+    background-color: var(--card-bg); color: var(--text-main);
+    display: flex; align-items: center; justify-content: center;
+
+    &.active, &:hover {
+      background-color: var(--primary-color); color: white; border-color: var(--primary-color);
+    }
+  }
+}
