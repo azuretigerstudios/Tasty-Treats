@@ -1,1 +1,126 @@
-<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Page title</title><link rel="stylesheet" href="/parcel-project-template/index.569a4d11.css"><script type="module" src="/parcel-project-template/index.cdc84ddc.js"></script><script src="/parcel-project-template/index.6c2642bc.js" nomodule="" defer></script></head><body>  <article class="example" id="uk"> <h1>HTML-partials</h1>  <img src="/parcel-project-template/logo.268195b3.png" alt="" width="320"> <p> The <a href="https://github.com/posthtml/posthtml-include" target="_blank" rel="noopener noreferrer"> posthtml-include </a> plugin allows you to add code from other HTML files (fragments) to HTML page files. Fragments are stored in the <code>src/partials</code> folder. The addition occurs when compiling page files, such as <code>index.html</code>. </p> <p> This <code>example.html</code> file is an example of such a snippet, with the markup of a certain part of the main page. This is very convenient for team development on student projects, when several people write in one HTML file at once. </p> <p> The syntax for adding a fragment to the main file is: <code> &lt;include src="./partials/filename.html"&gt;&lt;/include&gt;</code> </p> <div class="background"></div> </article> </body></html>
+<!DOCTYPE html><html lang=en><meta charset=UTF-8><meta name=viewport content="width=device-width, initial-scale=1.0"><link rel=icon href=/parcel-project-template/favicon-32x32.2177e388.png type=image/x-icon><meta name=description content="LEARN TO COOK TASTY TREATS"><title>Tasty Treats</title><link rel=preconnect href=https://fonts.googleapis.com><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css><link rel=stylesheet href=/parcel-project-template/favorites.becbd5a4.css><body>
+  <header class=header>
+  <div class="container header-container">
+    <a href=/parcel-project-template/index.html class=logo>tasty treats.</a>
+    <nav class="desktop-nav nav">
+      <ul class=nav-list>
+        <li class=nav-item><a href=/parcel-project-template/index.html class="active nav-link">Home</a></li>
+        <li class=nav-item><a href=/parcel-project-template/favorites.html class=nav-link>Favorites</a></li>
+      </ul>
+    </nav>
+    <div class=header-controls>
+        <button class="cart-btn js-open-order">🛒</button>
+        <button class=theme-switch>🌙</button>
+        <button class="js-open-menu mobile-menu-btn">☰</button>
+    </div>
+  </div>
+  <div class="is-hidden js-menu-container mobile-menu">
+      <button class="js-close-menu mobile-close-btn">✖</button>
+      <ul class=mobile-nav-list>
+        <li><a href=/parcel-project-template/index.html>Home</a></li>
+        <li><a href=/parcel-project-template/favorites.html>Favorites</a></li>
+      </ul>
+  </div>
+</header>
+
+  <main>
+    <section class=hero-section>
+  <div class=container>
+      <div class="hero-swiper swiper">
+          <div class=swiper-wrapper>
+              <div class=swiper-slide>
+                  <div class=hero-content>
+                      <h1 class=hero-title>Tasty Treats <span class=highlight>Customizable</span> Masterclass</h1>
+                      <p class=hero-desc>TastyTreats - Customize Your Meal with Ingredient Options.</p>
+                      <button class="hero-btn js-open-order">Order now</button>
+                  </div>
+                  <div class=hero-image>
+                      <img src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&amp;fit=crop&amp;w=600&amp;q=80" alt=Chef>
+                  </div>
+              </div>
+              <div class=swiper-slide>
+                  <div class=hero-content>
+                      <h1 class=hero-title>Tasty Treats <span class=highlight>Delicious</span> Recipes</h1>
+                      <p class=hero-desc>Discover the best recipes from around the world.</p>
+                      <button class="hero-btn js-open-order">Order now</button>
+                  </div>
+                  <div class=hero-image>
+                      <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&amp;fit=crop&amp;w=600&amp;q=80" alt=Dish>
+                  </div>
+              </div>
+              <div class=swiper-slide>
+                  <div class=hero-content>
+                      <h1 class=hero-title>Tasty Treats <span class=highlight>Easy</span> Cooking</h1>
+                      <p class=hero-desc>Cooking made easy for everyone.</p>
+                      <button class="hero-btn js-open-order">Order now</button>
+                  </div>
+                  <div class=hero-image>
+                      <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&amp;fit=crop&amp;w=600&amp;q=80" alt=Dish>
+                  </div>
+              </div>
+          </div>
+          <div class=swiper-pagination></div>
+      </div>
+  </div>
+</section>
+
+    <section class="search-recipes section">
+      <div class="container search-recipes__wrapp">
+
+        <div class=sidebar>
+          <div class=categories-box>
+    <button class="active all-categories-btn">All categories</button>
+    <ul class="categories-list js-categories-list">
+        </ul>
+</div>
+          <div class=popular-recipes-box>
+    <h3 class=sidebar-title>Popular recipes</h3>
+    <ul class="js-popular-list popular-list">
+        </ul>
+</div>
+        </div>
+
+        <div class=gallery-wrapper>
+    <div class=filters-wrap id=filters-area>
+        <div class=filter-group>
+            <label>Search</label>
+            <input id=search-input placeholder="Enter text">
+        </div>
+        <div class=filter-group>
+            <label>Time</label>
+            <select id=time-select><option value>Time</select>
+        </div>
+        <div class=filter-group>
+            <label>Area</label>
+            <select id=area-select><option value>Select area</select>
+        </div>
+        <div class=filter-group>
+            <label>Ingredient</label>
+            <select id=ingredient-select><option value>Select ingredient</select>
+        </div>
+        <button id=reset-filters class=reset-btn>Reset filters ✖</button>
+    </div>
+
+    <div class="js-recipes-grid recipes-grid"></div>
+
+    <div id=pagination class=pagination-container></div>
+</div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer style=color:#fff;text-align:center;background:#111;margin-top:50px;padding:20px>
+    <div class=container>
+        <p>© 2025 Tasty Treats. All rights reserved.</p>
+    </div>
+</footer>
+  
+
+  <div class="backdrop is-hidden" id=recipe-modal><div class=modal><button type=button class=modal-close-btn id=close-modal>✖</button><div class=modal-content id=modal-content></div></div></div>
+  <div class="backdrop is-hidden" id=rating-modal><div class="modal rating-modal"><button type=button class="js-close-rating modal-close-btn">✖</button><div class=rating-display><div id=rating-value>0.0</div><div class=stars-container id=stars-container></div></div><form class=rating-form id=rating-form><input type=email name=email required class=form-input placeholder="Enter email"><input type=hidden name=rate id=rating-input value=5><button class=submit-btn>Send</button></form></div></div>
+  <div class="backdrop is-hidden" id=order-modal><div class="modal order-modal"><button type=button class="js-close-order modal-close-btn">✖</button><h2 class=modal-title>Order now</h2><form class=order-form id=order-form><label class=form-label>Name<input name=name required class=form-input></label><label class=form-label>Phone<input type=tel name=phone required class=form-input></label><label class=form-label>Email<input type=email name=email required class=form-input></label><label class=form-label>Comment<textarea name=comment class=form-input></textarea></label><button class=submit-btn>Send</button></form></div></div>
+
+  <script src=https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js></script>
+  <script type=module src=/parcel-project-template/favorites.31f6a119.js></script>
+

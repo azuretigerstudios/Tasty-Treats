@@ -1,0 +1,52 @@
+<!DOCTYPE html><html lang=en><meta charset=UTF-8><meta name=viewport content="width=device-width, initial-scale=1.0"><title>Tasty Treats - Favorites</title><link rel=stylesheet href=/parcel-project-template/favorites.becbd5a4.css><body>
+    <header class=header>
+  <div class="container header-container">
+    <a href=/parcel-project-template/index.html class=logo>tasty treats.</a>
+    <nav class="desktop-nav nav">
+      <ul class=nav-list>
+        <li class=nav-item><a href=/parcel-project-template/index.html class="active nav-link">Home</a></li>
+        <li class=nav-item><a href=/parcel-project-template/favorites.html class=nav-link>Favorites</a></li>
+      </ul>
+    </nav>
+    <div class=header-controls>
+        <button class="cart-btn js-open-order">🛒</button>
+        <button class=theme-switch>🌙</button>
+        <button class="js-open-menu mobile-menu-btn">☰</button>
+    </div>
+  </div>
+  <div class="is-hidden js-menu-container mobile-menu">
+      <button class="js-close-menu mobile-close-btn">✖</button>
+      <ul class=mobile-nav-list>
+        <li><a href=/parcel-project-template/index.html>Home</a></li>
+        <li><a href=/parcel-project-template/favorites.html>Favorites</a></li>
+      </ul>
+  </div>
+</header>
+
+    <main>
+      <section class="hero section" style="padding:40px 0">
+        <div class=container>
+          <h1 class=hero-title>Your Favorite Recipes</h1>
+          <p class=hero-desc>Beğendiğin tarifler burada listelenecek.</p>
+        </div>
+      </section>
+
+      <section class="favorites-list section">
+        <div class=container>
+           <div class="js-favorites-grid recipes-grid">
+               <p style=text-align:center;width:100%>Henüz favori eklemedin.</p>
+           </div>
+        </div>
+      </section>
+    </main>
+
+    <div class="backdrop is-hidden" id=recipe-modal>
+        <div class=modal>
+            <button type=button class=modal-close-btn id=close-modal>✖</button>
+            <div class=modal-content id=modal-content>
+                </div>
+        </div>
+    </div>
+
+    <script type=module src=/parcel-project-template/favorites.31f6a119.js></script>
+  
